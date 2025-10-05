@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="hr">
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Cart</title>
+            <link rel="stylesheet" href="/styles/cart_style.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                    <%- include('partials/header', { headerType: 'cart' }) %> 
+            </header>
+            <div class="kosarica" alt="stanje u kosarici">
+                <div id="kosarica_lista" class="kosarica_lista">
+                    <h1>Vaša košarica</h1>
+                    <% cart.forEach(item => { %>
+                        <div class="proizvod">
+                            <div class="naziv_proizvoda">
+                                <h2><%= item.name %></h2>
+                            </div>
+                            <div class="kolicina_container">
+                                <button class="minus" data-id="<%= item.id %>">-</button>
+                                <span id="brojac-<%= item.id %>" class="brojac"><%= item.quantity %></span>
+                                <button class="plus" data-id="<%= item.id %>">+</button>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <%- include('partials/footer') %>
+        </footer>
+        <script src="/scripts/cart_script.js"></script>   
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ducan za glazbene instrumente</title>
+    <link rel="stylesheet" href="/styles/index_styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <%- include('partials/header', { 
+                headerType: 'home',
+                session: session,  // Prosljeđivanje sessiona
+                cart: session.cart || []  // Prosljeđivanje košarice
+            }) %>
+        </header>
+        <div class="kategorije_proizvoda" alt="Kategorije proizvoda">
+            <% data.categories.forEach(category=> { %>
+                <button onclick="window.location.href='/home/getProducts/<%= category.id %>'" class="kategorija_button"
+                    id="<%= category.name.toUpperCase().replace(/ /g, '_') %>"
+                    alt="Gumb za kategoriju <%= category.name.toLowerCase() %>">
+                    <%= category.name %>
+                </button>
+                <% }); %>
+        </div>
+        <div class="slika_pozdrav" alt="Slika koja predstavlja ducan">
+            <h1>Dobrodošli u moj dućan</h1>
+        </div>
+        <div class="informacije" alt="Informacije o ducanu">
+            <button class="info_button" alt="Gumb za kontakt">Kontakt</button>
+            <button class="info_button" alt="Gumb za newsletter">Newsletter</button>
+            <button class="info_button" alt="Gumb za pretplatu">Pretplati se</button>
+        </div>
+        <div class="slike_proizvoda" alt="Slike proizvoda u odabranoj kategoriji">
+            <% products.forEach((product, index)=> { %>
+                <div class="proizvod">
+                    <div class="slika_container">
+                        <div class="slika_proizvod">
+                            <img id="proizvod<%= index %>slika" src="/<%= product.image %>" alt="<%= product.name %>">
+                        </div>
+                        <div class="dodaj_u_kosaricu" data-id="<%= product.id %>">
+                            <img src="/images/shopping-cart.png" alt="Ikona kosarice">
+                        </div>
+                        <%
+                              const item = session.cart?.find(item => item.id === product.id);
+                              const quantity = item ? item.quantity : 0;
+                        %>
+                        <span id="brojac-<%= product.id %>" class="brojac">
+                            <%= quantity %>
+                        </span>
+                    </div>
+                    <div class="naziv_proizvoda">
+                        <h2 id="proizvod<%= index %>">
+                            <%= product.name %>
+                        </h2>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </div>
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+    <script src="/scripts/home_script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+footer {
+        background-color: rgb(245, 219, 193);
+        padding: 10px;
+        text-align: center;
+        font-size: 1.5vw;
+        border: 2px solid black;
+        margin-top: auto;
+}
+body {
+        display: flex;
+        flex-direction: column; 
+        min-height: 97vh;
+}
+header, .kosarica {
+        background-color: rgb(245, 219, 193);
+}
+.logo {     
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.logo img{
+        width: 30%;
+        position: relative;
+        right: 20%;
+}
+.u_kosarici h1 {
+        font-size: 2em;
+}
+.u_kosarici {
+        grid-area: trenutna_kategorija;
+        width: 100%;
+}
+
+.kosarica_i_search_container {
+        grid-area: kosarica_i_logo;
+        display: inline-block;
+        align-items: center;
+}
+
+.kosarica_i_search_container img {
+        width: 10%; 
+        height: auto; 
+        position: relative;
+        left: 50%;
+}
+.kosarica_i_search_container span {
+        position: relative;
+        left: 50%;
+        display: inline-flex;
+        font-size: 2vw;
+        width: 2vw;
+        height: 2vw;
+        font-weight: bold;
+        background-color: rgb(223, 158, 53);
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        right: 5%;
+        bottom: 5%;      
+}
+header {
+        grid-area: header;
+        border: 2px solid black;
+        padding: 10px;
+        align-items: center;
+        justify-content: space-evenly;
+        display: flex;
+}
+.kosarica {
+        grid-area: cart;
+        margin: 10px;
+        border: 2px solid black;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.kosarica h1 {
+        font-size: 2.5vw;
+        font-weight: bold;
+        text-align: center;
+}
+
+.kosarica .kosarica_lista .proizvod{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 10px;
+        justify-items: end;
+        align-items: center;
+        margin: 10px;
+        border: 2px solid black;
+        padding: 10px;
+        background-color: rgb(216, 199, 181);
+        font-weight: bold;
+        font-size: 1.2em;
+}
+.kosarica .kosarica_lista .proizvod .naziv_proizvoda {
+        font-size: 1.4vw;
+        font-weight: bold;
+        text-align: center;
+}
+.kosarica .kosarica_lista .proizvod .kolicina {
+        position: relative;
+        left: 50%;
+        font-size: 1.7vw;
+        font-weight: bold;
+        text-align: center;
+}
+.minus, .plus {
+        display: inline-block;
+        width: 3em;
+        height: 2em;
+        font-size: 0.7em;
+        font-weight: bold;
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        border: 2px solid black;
+        
+}
+.minus:hover, .plus:hover {
+        background-color: rgb(229, 163, 112);
+        cursor: pointer;
+}
+.container {
+    display: grid;
+        grid-template-areas: "header"
+                                "header"
+                                "cart";
+}
+@media screen and (max-width: 1024px) {
+        header {
+                grid-area: header;
+                display: grid;
+                grid-template-areas: "logo logo"
+                                    "u_kosarici kosarica_i_search_container";
+                grid-template-rows: auto auto;
+        }
+        .logo { 
+                grid-area: logo;    
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
+        .logo img{
+                width: 30%;
+                position: relative;
+                right: 30%;
+        }
+        .u_kosarici h1 {
+                font-size: 3vw;
+        }
+        .u_kosarici {
+                grid-area: trenutna_kategorija;
+                display: inline-block;
+                align-items: center;
+                position: relative;
+                right: 100%;
+        }
+        .kosarica_i_search_container {
+                grid-area: kosarica_i_logo;
+                display: inline-block;
+                align-items: center;
+        }
+
+        .kosarica .kosarica_lista .proizvod .naziv_proizvoda {
+                font-size: 2.5vw;
+                font-weight: bold;
+                text-align: center;
+        }
+        .kosarica .kosarica_lista .proizvod .kolicina {
+                position: relative;
+                left: 50%;
+                font-size: 2.5vw;
+                font-weight: bold;
+                text-align: center;
+        }
+
+}       

@@ -1,0 +1,23 @@
+<div class="logo" alt="Logo">
+        <img src="/images/logo.png" alt="Logo">
+</div>
+<% if (headerType === 'home') { %>
+<div class="trenutna_kategorija" alt="Kategorija proizvoda koja je trenutno otvorena">
+        <h1><%- selectedCategoryName %></h1>
+</div>
+<% } else if (headerType === 'cart') { %>
+        <div class="u_kosarici" alt="Nalazite se u kosarici">
+        <h1>NALAZITE SE U KOŠARICI</h1>
+</div>
+<% } %>
+<div class="kosarica_i_search_container" alt="Ikona za kosaricu i search">
+        <img src="/images/search.png" alt="Ikona za pretrazivanje">
+        <a href="/cart/getAll"><img src="/images/shopping-cart.png" alt="Ikona kosarice"></a>
+        <span class="brojac_kosarice"  id="globalniBrojac" alt="Broj proizvoda u kosarici">
+                <%= session.cart && session.cart.length > 0 ? session.cart.reduce((total, item) => total + item.quantity, 0) : 0 %>
+        </span>
+</div>
+
+
+
+        

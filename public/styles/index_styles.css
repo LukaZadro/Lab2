@@ -1,0 +1,257 @@
+footer {
+        background-color: rgb(245, 219, 193);
+        padding: 10px;
+        text-align: center;
+        font-size: 1.5vw;
+        border: 2px solid black;
+}
+header, .informacije, .slike_proizvoda {
+        background-color: rgb(245, 219, 193);
+    }
+.proizvod {
+        background-color: rgb(216, 199, 181);
+}
+.kategorija_button, .info_button {
+        background-color: rgb(216, 199, 181);
+}
+.logo { 
+        grid-area: logo;    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.logo img{
+        width: 30%;
+        position: relative;
+        right: 20%;
+}
+.trenutna_kategorija h1 {
+        font-size: 2vw;
+}
+.trenutna_kategorija {
+        width: 100%;
+}
+.kategorije_proizvoda {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+}
+.kategorija_button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2px;
+}
+
+.kosarica_i_search_container {
+        display: inline-block;
+        align-items: center;
+}
+
+.kosarica_i_search_container img {
+        width: 10%; 
+        height: auto; 
+        position: relative;
+        left: 50%;
+}
+.kosarica_i_search_container span {
+        position: relative;
+        left: 50%;
+        display: inline-flex;
+        font-size: 2vw;
+        width: 2vw;
+        height: 2vw;
+        font-weight: bold;
+        background-color: rgb(223, 158, 53);
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        right: 5%;
+        bottom: 5%;      
+}
+
+header {
+        grid-area: header;
+        border: 2px solid black;
+        padding: 10px;
+        align-items: center;
+        justify-content: space-evenly;
+        display: flex;
+}
+.kategorija_button {
+        border: 2px solid black;
+        padding: 10px;
+        font-size: 1.5vw;
+        cursor: pointer;
+        margin-top: 2px;
+}
+
+.kategorija_button:hover {
+        background-color: rgb(239, 192, 144);
+        border: 2px solid black;
+}
+.slika_pozdrav {
+        background-image: url("../images/ducan.jpg"); /* Provjerena putanja */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        grid-area: slika;
+        border: 2px solid black;
+        display: flex;
+        justify-content: center; 
+        align-items: flex-start;
+        padding: 10px;
+        margin: 10px;
+}
+.slika_pozdrav h1 {
+        font-size: 4vw;
+        color: white;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.informacije {
+        grid-area: informacije;
+        height: fit-content;
+        font-size: 1.5vw;
+        padding: 10px;
+        margin-top: 10px;
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+.info_button {
+        border: 2px solid black;
+        padding: 10px;
+        font-size: 1.5vw;
+        cursor: pointer;
+        margin-top: 2px;
+}
+.info_button:hover {
+        background-color: rgb(239, 192, 144);
+        border: 2px solid black;
+}
+.slike_proizvoda {
+        grid-area: proizvodi;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 10px;
+        margin: 10px;
+}
+.proizvod {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        border: 2px solid black;
+        padding: 10px;
+}
+.slika_container {
+        height: 100%;
+        position: relative;
+        display: flex;
+        object-fit: cover;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+}
+.slika_container span {
+        position: absolute;
+        font-size: 3vw;
+        width: 3vw;
+        height: 3vw;
+        font-weight: bold;
+        background-color: rgb(223, 158, 53);
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        right: 5%;
+        bottom: 5%;
+        display: flex;
+}
+.proizvod h2 {
+        font-size: 1.5vw;
+        text-align: center;
+
+}
+.slika_container .slike_proizvod {
+        position: absolute;
+}
+.slika_container .dodaj_u_kosaricu {
+        position: absolute;
+        top: 30%;
+        margin-right: 100%;
+}
+.slika_container img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+}
+.dodaj_u_kosaricu {
+        width: 50%;
+        left: 25%;
+        display: none
+}
+.slika_container:hover .dodaj_u_kosaricu {
+        display: block;
+        cursor: pointer;
+}
+.proizvod img{
+        border: 2px solid black;
+        width: 100%; 
+        height: 100%; 
+        z-index: 1;
+        background-color: rgb(216, 199, 181);
+}
+.container {
+        display: grid;
+        grid-template-areas:    "header header header"
+                                "header header header"
+                                "kategorije slika slika"
+                                "informacije proizvodi proizvodi";
+}
+@media screen and (max-width: 1024px) {
+        header {
+                grid-area: header;
+                display: grid;
+                grid-template-areas: "logo logo"
+                                    "trenutna_kategorija kosarica_i_search_container";
+                grid-template-rows: 3fr 1fr;
+        }
+        .logo { 
+                grid-area: logo;    
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
+        .logo img{
+                width: 30%;
+                position: relative;
+                right: 30%;
+        }
+        .trenutna_kategorija h1 {
+                font-size: 3vw;
+        }
+        .trenutna_kategorija {
+                grid-area: trenutna_kategorija;
+                display: inline-block;
+                align-items: center;
+                position: relative;
+                left: 100%;
+                top: 75%;
+        }
+        .kosarica_i_search_container {
+                grid-area: kosarica_i_logo;
+                display: inline-block;
+                align-items: center;
+        }
+
+}       
